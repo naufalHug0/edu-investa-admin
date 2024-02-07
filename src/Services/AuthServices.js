@@ -22,6 +22,14 @@ export default class AuthServices extends ApiServices {
         }))
     }
 
+    me () {
+        this.handleForbiddenError = () => {
+            this.removeBearerToken()
+        }
+        
+        this.fetchData(this.axiosInstance.get('auth/me'))
+    }
+
     isAuthenticated() {
         if (sessionStorage.getItem('token') == null) {
             return false

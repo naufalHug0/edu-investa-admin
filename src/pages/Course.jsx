@@ -5,6 +5,7 @@ import Loader from '../common/Loader';
 import QuizServices from '../Services/QuizServices';
 import TableCourse from '../components/TableCourse';
 import FormCourse from './Form/FormCourse';
+import CourseServices from '../Services/CourseServices';
 
 const Course = () => {
     return (
@@ -21,20 +22,20 @@ const Course = () => {
     );
 }
 
-// const Services = new QuizServices()
+const Services = new CourseServices()
 
 const Index = () => {
     const [data, setData] = useState([1])
 
-    // Services.handleSuccess = () => {
-    //     setData(Services.responseBody.data)
-    // }
+    Services.handleSuccess = () => {
+        setData(Services.responseBody.data)
+    }
 
-    // useEffect(() => {
-    //     Services.getAll()
-    // }, [])
+    useEffect(() => {
+        Services.getAll()
+    }, [])
 
-    // if (!data) return <Loader/>
+    if (!data) return <Loader/>
 
     return (
         <>
@@ -45,7 +46,7 @@ const Index = () => {
         Tambah Course
         </Link>
         <div className="flex flex-col gap-10">
-        <TableCourse cols={['Judul','Durasi','Total Pertanyaan']} rows={data} />
+        <TableCourse cols={['Judul','Total Video']} rows={data} />
         </div>
         </>
     )

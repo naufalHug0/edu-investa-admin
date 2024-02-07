@@ -10,6 +10,8 @@ export default class Video {
         
         this.video_file = ''
 
+        this.is_premium = true
+
         this.duration = 0
     }
 
@@ -23,6 +25,10 @@ export default class Video {
 
     setThumbnailFile(file) {
         this.thumbnail_file = file
+    }
+
+    setIsPremium(value) {
+        this.is_premium = value
     }
 
     setVideo(file) {
@@ -43,6 +49,7 @@ export default class Video {
             description: this.description,
             duration: this.duration,
             video: this.video_file,
+            is_premium: this.is_premium,
             thumbnail: this.thumbnail_file
         }
     }

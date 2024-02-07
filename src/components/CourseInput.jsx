@@ -4,6 +4,7 @@ import InputText from '../pages/Form/InputText'
 import TextArea from './TextArea'
 import VideoPreview from './VideoPreview'
 import ImagePreview from './ImagePreview'
+import Select from './Select'
 
 const CourseInput = ({
     Video,
@@ -12,6 +13,7 @@ const CourseInput = ({
     const [title, setTitle] = useState(null)
     const [image, setImage] = useState(null)
     const [video, setVideo] = useState(null)
+    const [isPremium, setIsPremium] = useState(true)
     const [previewImage, setPreviewImage] = usePreviewMedia(image)
     const [previewVideo, setPreviewVideo] = usePreviewMedia(video)
     const [showPreviewVideo, setShowPreviewVideo] = useState(false)
@@ -78,6 +80,18 @@ const CourseInput = ({
                 onChange={e => Video.setDescription(e.target.value)}
                 className="mb-4 w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary"
                 />
+            </div>
+
+            <div className='mb-8'>
+            <label className="mb-3 block text-black dark:text-white">
+                Tipe Video
+            </label>
+            <Select options={['Premium','Regular']} values={['premium','regular']}
+            onChange={e => {
+                Video.setIsPremium(e.target.value == 'premium')
+                setIsPremium(e.target.value == 'premium')
+            }}
+            />
             </div>
 
             <div className="mb-8">

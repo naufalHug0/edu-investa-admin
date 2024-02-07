@@ -5,6 +5,9 @@ import { Video } from '../../classes'
 import useGenerateId from '../../hooks/useGenerateId'
 import CourseInput from '../../components/CourseInput'
 import CourseServices from '../../Services/CourseServices'
+import Select from '../../components/Select'
+import { Modal } from '../../Services/Modal'
+import ModalMessage from '../../data/ModalMessage'
 
 const Services = new CourseServices()
 
@@ -41,9 +44,7 @@ const FormCourse = () => {
             console.log(Services.errors)
         }
 
-
         Services.handleSuccess = () => {
-            console.log(Services.responseBody)
             Modal.show({
                 ...ModalMessage.form.create.success,
                 options: [

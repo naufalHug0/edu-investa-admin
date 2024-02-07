@@ -33,7 +33,7 @@ export default class ApiServices {
                     if (error.response.data.errors) {
                         this.errors = error.response.data.errors
                     } else {
-                        this.errors = {message: error.response.data.message}
+                        this.errors = {message: error.response.data}
                     }
                 
                     switch (error.response.status) {

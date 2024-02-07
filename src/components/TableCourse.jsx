@@ -42,12 +42,7 @@ const TableCourse = ({ cols, rows }) => {
                         </h5>
                     </td>
                     <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                        <h5 className="font-medium text-black dark:text-white">
-                        {formatSecondsToTimeString(row.duration)}
-                        </h5>
-                    </td>
-                    <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                        <p className="text-black dark:text-white">{row.questions_count} Pertanyaan</p>
+                        <p className="text-black dark:text-white">{row.videos_count} Video</p>
                     </td>
                     <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                         <div className="flex items-center space-x-3.5">
